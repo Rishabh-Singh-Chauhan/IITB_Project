@@ -1,0 +1,14 @@
+version: '3'
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/database
+
+  db:
+    image: postgres
+    environment:
